@@ -1,26 +1,3 @@
-# DISCONTINUATION OF PROJECT #  
-This project will no longer be maintained by Intel.  
-Intel has ceased development and contributions including, but not limited to, maintenance, bug fixes, new releases, or updates, to this project.  
-Intel no longer accepts patches to this project.  
- If you have an ongoing need to use this project, are interested in independently developing it, or would like to maintain patches for the open source software community, please create your own fork of this project.  
-  
-# LMRS: Learned Manifold Random Search
-
-This code repository includes the source code for the [Paper](https://arxiv.org/abs/2004.12214):
-
-```
-Learning to Guide Random Search
-Ozan Sener, Vladlen Koltun
-International Conference on Learning Representations (ICLR) 2020 
-```
-
-The experimentation framework is based on [Ray](https://github.com/ray-project/ray) and extends the implementation of [ARS](https://github.com/modestyachts/ARS).
-
-The source code is released under the MIT License. See the License file for details.
-
-Please note that this is the minimal implementation of the LMRS for MuJoCo, we will update the repo with the additional code for XFoil, Pagmo, and synthetic experiments. 
-
-
 # Requirements and References
 The code uses the following Python packages and they are required: ``tensorboardX, pytorch>1.0, click, numpy, torchvision, tqdm, scipy, Pillow, ray``
 
@@ -38,19 +15,4 @@ Experiment specific parameters are provided as a json file. See the `hc.json` fo
 To run an example experiment, use the command: 
 ```bash
 python mujoco_experiments.py --param_file=./hc.json
-```
-
-# Contact
-For any question, you can contact ozan.sener@intel.com
-
-# Citation
-If you use this codebase or any part of it for a publication, please cite:
-```
-@inproceedings{ICLR2020_Sener_Koltun,
-title={Learning to Guide Random Search},
-author={Ozan Sener and Vladlen Koltun},
-booktitle={International Conference on Learning Representations},
-year={2020},
-url={https://openreview.net/forum?id=B1gHokBKwS}
-}
 ```
