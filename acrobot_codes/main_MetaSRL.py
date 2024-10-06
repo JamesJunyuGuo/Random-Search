@@ -24,6 +24,8 @@ OUTPUT_SIZE = 3
 VARIANCE = 0.2
 LIMIT_RANGE = [40, 42]
 
+print("Finish generating the args")
+
 
 metasrl = MetaSRL(INPUT_SIZE, OUTPUT_SIZE)
 np.random.seed(0)
@@ -50,10 +52,10 @@ for i in range(TRAIN_TASK_COUNT):
     performance = np.array([metasrl.rewards_by_task, metasrl.cost_1s_by_task, metasrl.cost_2s_by_task])
     np.save(f"results/MetaSRL/run_{RUN}/performance_data/performance_{i}.npy", performance)
 
-    torch.save(metasrl.policy, f"results/MetaSRL/run_{RUN}/models/model_{i}")
-    torch.save(metasrl.value_function, f"results/MetaSRL/run_{RUN}/models/value_function_{i}")
-    torch.save(metasrl.cost_value_function_1, f"results/MetaSRL/run_{RUN}/models/cost_value_function_1_{i}")
-    torch.save(metasrl.cost_value_function_2, f"results/MetaSRL/run_{RUN}/models/cost_value_function_2_{i}")
+    torch.save(metasrl.policy.state_dict(), f"results/MetaSRL/run_{RUN}/models/model_{i}.pth")
+    torch.save(metasrl.value_function.state_dict(), f"results/MetaSRL/run_{RUN}/models/value_function_{i}.pth")
+    torch.save(metasrl.cost_value_function_1.state_dict(), f"results/MetaSRL/run_{RUN}/models/cost_value_function_1_{i}.pth")
+    torch.save(metasrl.cost_value_function_2.state_dict(), f"results/MetaSRL/run_{RUN}/models/cost_value_function_2_{i}.pth")
 
 
 ## Test time
